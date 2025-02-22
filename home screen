@@ -1,0 +1,77 @@
+// ignore_for_file: non_constant_identifier_names
+
+import 'package:flutter/material.dart';
+
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Waste Management')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: GridView.count(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          children: [
+            NavigationCard(
+              title: "Schedule Pickup",
+              icon: Icons.schedule,
+              onTap: () => _navigateTo(context, const ScheduleScreen() as Widget),
+            ),
+            NavigationCard(
+              title: "Recycling Tips",
+              icon: Icons.recycling,
+              onTap: () => _navigateTo(context, const RecyclingTipsScreen() as Widget),
+            ),
+            NavigationCard(
+              title: "Real-Time Tracking",
+              icon: Icons.location_on,
+              onTap: () => _navigateTo(context, const TrackingScreen() as Widget),
+            ),
+            NavigationCard(
+              title: "Reporting",
+              icon: Icons.report_problem,
+              onTap: () => _navigateTo(context, const ReportingScreen() as Widget),
+            ),
+            NavigationCard(
+              title: "Dashboard",
+              icon: Icons.dashboard,
+              onTap: () => _navigateTo(context, const DashboardScreen() as Widget),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _navigateTo(BuildContext context, Widget screen) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
+  }
+}
+
+class ReportingScreen {
+  const ReportingScreen();
+}
+
+class RecyclingTipsScreen {
+  const RecyclingTipsScreen();
+}
+
+class TrackingScreen {
+  const TrackingScreen();
+}
+
+class ScheduleScreen {
+  const ScheduleScreen();
+}
+
+NavigationCard({required String title, required IconData icon, required void Function() onTap}) {
+}
+
+class DashboardScreen {
+  const DashboardScreen();
+}
